@@ -10,9 +10,17 @@ public class ProfitLoss {
         System.out.print("Enter SP: ");
         int sp = sc.nextInt();
 
-        if(sp>cp) System.out.println("Profit is : "+ (double)(sp - cp)/cp*100);
-        if(sp<cp)System.out.println("Loss is: "+ (double)(cp-sp)/cp*100);
-        if(sp == cp) System.out.println("Nor Profit Nor Loss");
+        if(sp>cp) {
+            System.out.println("Profit is : " + (sp - cp));
+            System.out.println("Profit percentage is : " + (double) (sp - cp) / cp * 100);
+        }
+        if(sp<cp) {
+            System.out.println("Loss is : " + (cp - sp));
+            System.out.println("Loss percentage is: " + (double) (cp - sp) / cp * 100);
+        }
+        if(sp == cp) {
+            System.out.println("Nor Profit Nor Loss");
+        }
 
     }
 }
