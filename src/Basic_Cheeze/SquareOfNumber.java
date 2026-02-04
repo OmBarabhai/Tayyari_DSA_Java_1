@@ -2,18 +2,18 @@ package Basic_Cheeze;
 
 import java.util.Scanner;
 
-public class AreaOfCircle {
+public class SquareOfNumber {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
         // Input
-        double r = sc.nextDouble();
+        int n = sc.nextInt();
 
         // Logic
-        double area = Math.PI * r * r;
+        int square = n * n;
 
         // Output
-        System.out.println(area);
+        System.out.println(square);
     }
 }
