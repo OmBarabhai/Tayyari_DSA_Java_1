@@ -25,7 +25,6 @@ public class Bridge {
             }
             nsp+=2;
             System.out.println();
-
         }
     }
 }
