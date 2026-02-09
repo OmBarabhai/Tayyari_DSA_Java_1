@@ -16,7 +16,14 @@ public class PermutationNdCombination {
         int n = sc.nextInt();
         int r = sc.nextInt();
 
+
+        System.out.println(fact(n));
+        System.out.println(fact(r));
+        System.out.println(fact(n-r));
+
         int ncr = fact(n)/(fact(r)*fact(n-r));
+
+        System.out.println();
         int npr = fact(n)/(fact(n-r));
         System.out.println("ncr: "+ncr);
         System.out.println("npr: "+npr);
