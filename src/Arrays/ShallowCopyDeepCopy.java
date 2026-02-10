@@ -18,7 +18,13 @@ public class ShallowCopyDeepCopy {
         System.out.println(arr[0]);
         System.out.println(y[0]);
 
+        int[] brr = new int[arr.length];
 
+        for (int i = 0; i < arr.length; i++) {//deep-copy
+            brr[i] = arr[i];
+            System.out.print(brr[i]+ " ");
+
+        }
 
     }
 }
