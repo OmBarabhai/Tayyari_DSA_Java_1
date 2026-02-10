@@ -26,10 +26,7 @@ public class RevArr {
 
 //        while (i<j){
 //
-//            int temp = arr[i12 67 73 48 53 31
-//32 54 33 12 67 73 48 53 31
-//Process finished with exit];
-//            arr[i]= arr[j];
+ //            arr[i]= arr[j];
 //            arr[j] = temp;
 //
 //            i++;
