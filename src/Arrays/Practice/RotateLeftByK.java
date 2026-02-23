@@ -22,7 +22,6 @@ public class RotateLeftByK {
         int k = sc.nextInt();  // rotation steps
 
         int[] arr = new int[n];
-
         // Input array
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
