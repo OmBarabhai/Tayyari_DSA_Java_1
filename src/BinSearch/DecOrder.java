@@ -8,7 +8,7 @@ public class DecOrder {
         int high = arr.length-1;
 
         int ans = -3;
-        int target = 9;
+        int target= 9;
 
         while(low<=high){
             int mid = (low + high)/2;
