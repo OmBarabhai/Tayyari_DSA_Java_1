@@ -1,17 +1,28 @@
 package OOP;
 
 /*
-========================================
-STATIC VARIABLE - QUICK INTERVIEW NOTE
-========================================
+=============================================
+STATIC VARIABLE & STATIC METHOD - REVISION
+=============================================
 
-Definition:
-A static variable belongs to the CLASS, not to objects.
+Static Variable
+- Belongs to the class, not objects
+- Only ONE copy exists in memory
+- Shared by all objects
 
-Key Idea:
-Only ONE copy exists in memory and it is shared by all objects.
+Static Method
+- Belongs to the class
+- Called using ClassName.method()
+- Can access only static variables directly
 
-Memory View
+Instance Variable
+- Belongs to objects
+- Each object has its own copy
+
+Instance Method
+- Works with instance variables and static variables
+
+Memory Concept
 
         CLASS AREA
         -------------------------
@@ -27,12 +38,7 @@ Memory View
       | region ------->|----|------------->|
       ----------------      ----------------
 
-If one object changes region → ALL objects see the change.
-
-Best Practice:
-Use class name for static variables
-
-Pokemon.region = "Johto";
+Changing region once will affect all objects.
 */
 
 class Pokemon {
@@ -40,7 +46,7 @@ class Pokemon {
     // Static variable (shared by all objects)
     static String region = "Kanto";
 
-    // Instance variables (separate for each object)
+    // Instance variables
     String name;
     int level;
 
@@ -50,7 +56,12 @@ class Pokemon {
         this.level = level;
     }
 
-    // Display method
+    // Static method
+    static void showRegion() {
+        System.out.println("Current Pokemon Region: " + region);
+    }
+
+    // Instance method
     void display() {
         System.out.println(name + " | Level: " + level + " | Region: " + region);
     }
@@ -60,19 +71,26 @@ public class Static {
 
     public static void main(String[] args) {
 
-        // Creating objects
+        // Call static method using class name
+        Pokemon.showRegion();
+        Pokemon.region =  "keptown";
+
+        // Create objects
         Pokemon p1 = new Pokemon("Pikachu", 25);
         Pokemon p2 = new Pokemon("Eevee", 20);
 
-        System.out.println("---- Initial State ----");
+        System.out.println("\n---- Initial State ----");
         p1.display();
         p2.display();
 
-        // Changing static variable
+        // Change static variable
         System.out.println("\n---- Changing Region ----");
-
         Pokemon.region = "Johto";
 
+        // Static method shows updated region
+        Pokemon.showRegion();
+
+        // Display object details again
         p1.display();
         p2.display();
     }
