@@ -119,7 +119,7 @@ class LinkedList{
         else if(idx == size) addAtTail(val);
         else {
             Node temp = head;
-            for (int i = 0;i<=idx-1;i++){
+            for (int i = 1;i<=idx-1;i++){
                 temp = temp.next;
             }
             Node newNode = new Node(val);
@@ -127,6 +127,19 @@ class LinkedList{
             temp.next = newNode;
             size++;
         }
+    }
+    public void delete(int idx){
+        if(idx<0||idx>=size) {
+            System.out.println("Invalid Index");
+            return;
+        }
+        Node temp = head;
+        for (int i = 1; i < idx-1; i++) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        if(idx == size-1) tail = temp;
+        size--;
     }
 }
 
@@ -141,7 +154,8 @@ public class LinkedListDS {
         ll.addAtHead(120); ll.display();
         ll.deleteHead();ll.display();
         System.out.println(ll.size);
-        ll.insert(40,2);
+        ll.insert(45,1); ll.display();
+        ll.delete(2); ll.display();
 
     }
 }
