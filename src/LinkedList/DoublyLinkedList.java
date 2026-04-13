@@ -29,25 +29,35 @@ class DLL{
         if(head == null) head = tail = temp;
         else {
             tail.next = temp;
-            tail.prev = temp;
+            temp.prev = tail;
             tail = temp;
         }
         size++;
     }
-    void deleteAtHead(int val){
-        if(head.next == null) head = tail = null;
+    void deleteAtHead(){
+        if(size == 0) {
+            System.out.println("List is Empty");
+            return;
+        }
+        if(size == 1) head = tail = null;
+
         else {
            head = head.next;
            head.prev = null;
         }
         size--;
     }
-    void deleteAtTail(int val){
-        if(head == null) head = tail = null;
+    void deleteAtTail(){
+        if(size == 0) {
+            System.out.print("List is Empty");
+            return;
+        }
+        if(size == 1) head = tail = null;
         else{
             tail = tail.prev;
             tail.next = null;
         }
+        size--;
     }
     void display(){
         ListNode temp = head;
@@ -65,6 +75,29 @@ class DLL{
         }
         System.out.println();
     }
+    void insert(int idx,int val){
+        if(idx<0 || idx>size){
+            System.out.print("Invalid Index! ");
+        }
+        if(size == 0) {
+            insertAtHead(val);
+            return;
+        }
+        if(size == 1) {
+            insertAtTail(val);
+            return;
+        }
+        ListNode a = new ListNode(val);
+        ListNode temp = head;
+        for(int i = 0;i<=idx-1;i++){
+            temp = temp.next;
+        }
+        a.prev = temp;
+        a.next = temp.next;
+        temp.next = a;
+        a.next.prev = a;
+        size++;
+    }
 }
 public class DoublyLinkedList {
     public static void main(String[] args) {
@@ -73,11 +106,13 @@ public class DoublyLinkedList {
         list.insertAtHead(20);
         list.insertAtHead(30);
         list.insertAtHead(40);
-//        list.display();
+        list.display();
         list.insertAtTail(50);
-//        list.display();
-        list.displayReverse();
-
+        list.display();
+//        list.displayReverse();
+        list.deleteAtHead();
+        list.deleteAtTail();
+        list.display();
 
     }
 }
